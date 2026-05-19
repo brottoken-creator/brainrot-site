@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>BRAINROT ($BROT)</title>
 
-<meta name="description" content="BRAINROT ($BROT) — the currency of the rotted mind." />
+<meta name="description" content="BRAINROT ($BROT) — the currency of the rotted mind. A Solana meme coin for the terminally online.">
 
 <meta property="og:title" content="BRAINROT ($BROT)">
 <meta property="og:description" content="the currency of the rotted mind">
@@ -27,13 +28,13 @@
 <style>
 
 :root{
-  --bg:#070710;
-  --bg2:#12081d;
-  --text:#fff;
-  --muted:#b8b8c7;
+  --bg:#05050A;
+  --bg2:#0F0818;
+  --text:#ffffff;
+  --muted:#b9b9c8;
   --teal:#00FFD1;
   --purple:#9B5DE5;
-  --card:rgba(255,255,255,.05);
+  --card:rgba(255,255,255,.045);
   --border:rgba(255,255,255,.08);
 }
 
@@ -49,12 +50,12 @@ html{
 
 body{
   font-family:'Space Grotesk',sans-serif;
-  background:
-    radial-gradient(circle at top left,rgba(155,93,229,.2),transparent 30%),
-    radial-gradient(circle at bottom right,rgba(0,255,209,.12),transparent 30%),
-    linear-gradient(180deg,#05050a 0%,#10081b 100%);
   color:var(--text);
   overflow-x:hidden;
+  background:
+  radial-gradient(circle at top left,rgba(155,93,229,.18),transparent 28%),
+  radial-gradient(circle at bottom right,rgba(0,255,209,.12),transparent 28%),
+  linear-gradient(180deg,#040409 0%,#0c0815 100%);
 }
 
 body::before{
@@ -66,6 +67,15 @@ body::before{
   linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
   background-size:60px 60px;
   pointer-events:none;
+  z-index:-2;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  backdrop-filter:blur(0px);
+  pointer-events:none;
   z-index:-1;
 }
 
@@ -75,20 +85,8 @@ body::before{
 }
 
 section{
-  padding:90px 0;
+  padding:100px 0;
   position:relative;
-}
-
-h2{
-  font-size:clamp(2rem,5vw,4rem);
-  margin-bottom:28px;
-  font-weight:900;
-  letter-spacing:-2px;
-}
-
-p{
-  color:var(--muted);
-  line-height:1.7;
 }
 
 a{
@@ -101,13 +99,25 @@ img{
   max-width:100%;
 }
 
-/* NAV */
+p{
+  line-height:1.75;
+  color:var(--muted);
+}
+
+h2{
+  font-size:clamp(2.2rem,5vw,4rem);
+  margin-bottom:30px;
+  letter-spacing:-2px;
+  font-weight:900;
+}
+
+/* NAVBAR */
 
 .nav{
   position:sticky;
   top:0;
   z-index:999;
-  backdrop-filter:blur(14px);
+  backdrop-filter:blur(18px);
   background:rgba(5,5,10,.55);
   border-bottom:1px solid rgba(255,255,255,.05);
 }
@@ -122,20 +132,28 @@ img{
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
-  font-weight:900;
+  gap:14px;
 }
 
 .brand img{
-  width:42px;
+  width:44px;
   border-radius:50%;
-  box-shadow:0 0 18px rgba(0,255,209,.35);
+  box-shadow:0 0 24px rgba(0,255,209,.35);
+}
+
+.brand span{
+  font-weight:900;
+  letter-spacing:-1px;
 }
 
 .nav-links{
   display:flex;
-  gap:26px;
-  color:#d8d8e4;
+  gap:28px;
+  color:#d7d7e4;
+}
+
+.nav-links a{
+  transition:.25s ease;
 }
 
 .nav-links a:hover{
@@ -143,12 +161,15 @@ img{
 }
 
 .nav-btn{
-  padding:12px 24px;
+  padding:13px 24px;
   border-radius:999px;
   background:linear-gradient(90deg,var(--teal),var(--purple));
   color:#000;
   font-weight:900;
-  animation:pulse 2s infinite;
+  box-shadow:
+  0 0 20px rgba(0,255,209,.25),
+  0 0 45px rgba(155,93,229,.25);
+  animation:pulse 2.2s infinite;
 }
 
 /* HERO */
@@ -162,6 +183,21 @@ img{
   overflow:hidden;
 }
 
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  radial-gradient(circle at center,rgba(0,255,209,.08),transparent 35%);
+  pointer-events:none;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:980px;
+}
+
 .brain-rain{
   position:absolute;
   inset:0;
@@ -173,7 +209,7 @@ img{
   position:absolute;
   top:-10%;
   animation:fall linear infinite;
-  opacity:.15;
+  opacity:.14;
 }
 
 @keyframes fall{
@@ -185,19 +221,13 @@ img{
   }
 }
 
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:900px;
-}
-
 .hero-logo{
-  width:170px;
-  margin:0 auto 28px;
+  width:180px;
+  margin:0 auto 34px;
   animation:floaty 4s ease-in-out infinite;
   filter:
-    drop-shadow(0 0 25px rgba(0,255,209,.4))
-    drop-shadow(0 0 55px rgba(155,93,229,.3));
+  drop-shadow(0 0 28px rgba(0,255,209,.4))
+  drop-shadow(0 0 70px rgba(155,93,229,.3));
 }
 
 @keyframes floaty{
@@ -205,99 +235,102 @@ img{
     transform:translateY(0px);
   }
   50%{
-    transform:translateY(-10px);
+    transform:translateY(-12px);
   }
 }
 
 .hero h1{
   font-size:clamp(4rem,15vw,10rem);
-  line-height:.9;
+  line-height:.88;
   letter-spacing:-6px;
-  margin-bottom:14px;
+  margin-bottom:16px;
   font-weight:900;
   text-shadow:
-  0 0 30px rgba(0,255,209,.15),
-  0 0 60px rgba(155,93,229,.15);
+  0 0 30px rgba(0,255,209,.12),
+  0 0 70px rgba(155,93,229,.15);
 }
 
 .ticker{
-  font-size:clamp(1.3rem,4vw,2rem);
-  color:var(--teal);
+  font-size:clamp(1.4rem,4vw,2rem);
   font-weight:800;
-  margin-bottom:20px;
+  color:var(--teal);
+  margin-bottom:24px;
 }
 
 .tagline{
-  font-size:1.1rem;
-  margin-bottom:36px;
-  color:#d6d6e2;
+  font-size:1.12rem;
+  color:#dddded;
+  margin-bottom:42px;
 }
 
 .hero-buttons{
   display:flex;
   justify-content:center;
-  gap:16px;
+  gap:18px;
   flex-wrap:wrap;
 }
 
 .cta-btn{
-  padding:18px 34px;
+  padding:19px 36px;
   border-radius:999px;
   background:linear-gradient(90deg,var(--teal),var(--purple));
   color:#000;
   font-weight:900;
   transition:.25s ease;
-  box-shadow:
-  0 0 20px rgba(0,255,209,.35),
-  0 0 45px rgba(155,93,229,.25);
   animation:pulse 2s infinite;
+  box-shadow:
+  0 0 24px rgba(0,255,209,.35),
+  0 0 50px rgba(155,93,229,.25);
 }
 
 .cta-btn:hover{
-  transform:translateY(-4px) scale(1.03);
+  transform:translateY(-5px) scale(1.03);
 }
 
 .secondary-btn{
-  padding:18px 34px;
+  padding:19px 36px;
   border-radius:999px;
-  background:rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
   backdrop-filter:blur(10px);
+  transition:.25s ease;
 }
 
 .secondary-btn:hover{
   border-color:rgba(0,255,209,.3);
+  transform:translateY(-4px);
 }
 
 @keyframes pulse{
+
   0%,100%{
     box-shadow:
     0 0 20px rgba(0,255,209,.3),
-    0 0 45px rgba(155,93,229,.25);
+    0 0 50px rgba(155,93,229,.2);
   }
 
   50%{
     box-shadow:
-    0 0 35px rgba(0,255,209,.7),
-    0 0 70px rgba(155,93,229,.5);
+    0 0 35px rgba(0,255,209,.75),
+    0 0 80px rgba(155,93,229,.55);
   }
 }
 
 .hero-strip{
+  margin-top:60px;
   display:flex;
   justify-content:center;
   gap:14px;
   flex-wrap:wrap;
-  margin-top:56px;
 }
 
 .strip-item{
-  padding:13px 20px;
+  padding:14px 20px;
   border-radius:999px;
   background:rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.06);
-  color:#dfdfeb;
   font-size:.92rem;
+  color:#dddded;
 }
 
 /* TOKENOMICS */
@@ -305,48 +338,48 @@ img{
 .token-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:22px;
+  gap:24px;
 }
 
 .token-card{
   background:var(--card);
-  border:1px solid rgba(0,255,209,.16);
-  border-radius:26px;
-  padding:38px;
+  border:1px solid rgba(0,255,209,.15);
+  border-radius:28px;
+  padding:40px;
   text-align:center;
-  backdrop-filter:blur(14px);
+  backdrop-filter:blur(16px);
   transition:.3s ease;
 }
 
 .token-card:hover{
-  transform:translateY(-8px);
+  transform:translateY(-10px);
   border-color:rgba(0,255,209,.35);
-  box-shadow:0 0 30px rgba(0,255,209,.08);
+  box-shadow:0 0 35px rgba(0,255,209,.08);
 }
 
 .token-card h3{
   font-size:2rem;
-  margin-bottom:12px;
+  margin-bottom:14px;
 }
 
 /* ABOUT */
 
 .about-grid{
   display:grid;
-  grid-template-columns:340px 1fr;
-  gap:70px;
+  grid-template-columns:360px 1fr;
+  gap:80px;
   align-items:center;
 }
 
 .about-logo{
-  max-width:320px;
+  max-width:340px;
   margin:auto;
-  filter:drop-shadow(0 0 35px rgba(0,255,209,.25));
+  filter:drop-shadow(0 0 40px rgba(0,255,209,.25));
 }
 
 .about-text{
+  max-width:720px;
   font-size:1.08rem;
-  max-width:700px;
 }
 
 /* ROADMAP */
@@ -369,8 +402,8 @@ img{
 
 .phase{
   position:relative;
-  padding:32px 32px 32px 80px;
-  border-radius:26px;
+  padding:34px 34px 34px 84px;
+  border-radius:28px;
   background:rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.06);
   backdrop-filter:blur(12px);
@@ -386,44 +419,44 @@ img{
   content:"";
   position:absolute;
   left:13px;
-  top:36px;
+  top:38px;
   width:18px;
   height:18px;
   border-radius:50%;
   background:var(--teal);
-  box-shadow:0 0 20px var(--teal);
+  box-shadow:0 0 24px var(--teal);
 }
 
 .phase h3{
+  margin-bottom:12px;
   font-size:1.45rem;
-  margin-bottom:10px;
 }
 
-/* HOW TO BUY */
+/* BUY */
 
 .steps{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:22px;
+  gap:24px;
 }
 
 .step{
-  padding:32px;
-  border-radius:26px;
+  padding:34px;
+  border-radius:28px;
   background:rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.08);
   transition:.3s ease;
 }
 
 .step:hover{
-  transform:translateY(-8px);
+  transform:translateY(-10px);
   border-color:rgba(0,255,209,.3);
   box-shadow:0 0 24px rgba(0,255,209,.08);
 }
 
 .step-number{
-  width:52px;
-  height:52px;
+  width:56px;
+  height:56px;
   border-radius:50%;
   display:flex;
   align-items:center;
@@ -431,75 +464,91 @@ img{
   background:linear-gradient(135deg,var(--teal),var(--purple));
   color:#000;
   font-weight:900;
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
 
 .step h3{
   margin-bottom:12px;
-  font-size:1.15rem;
+  font-size:1.18rem;
 }
 
 /* FOOTER */
 
 footer{
-  padding:80px 0 40px;
-  text-align:center;
+  padding:90px 0 40px;
   border-top:1px solid rgba(255,255,255,.05);
+  text-align:center;
 }
 
 .ca-box{
-  max-width:820px;
+  max-width:880px;
   margin:auto;
+  padding:28px;
+  border-radius:28px;
   background:rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.08);
-  border-radius:24px;
-  padding:24px;
-  color:#d8d8e5;
-  margin-bottom:26px;
+  margin-bottom:30px;
   word-break:break-all;
 }
 
+.ca-title{
+  margin-bottom:12px;
+  color:#ffffff;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.contract{
+  color:#d8d8e6;
+  font-size:.96rem;
+}
+
 .copy-btn{
-  margin-top:14px;
+  margin-top:18px;
   border:none;
   cursor:pointer;
-  padding:10px 18px;
+  padding:12px 20px;
   border-radius:999px;
   background:linear-gradient(90deg,var(--teal),var(--purple));
   color:#000;
-  font-weight:800;
+  font-weight:900;
   font-family:inherit;
+  transition:.25s ease;
+}
+
+.copy-btn:hover{
+  transform:translateY(-3px);
 }
 
 .socials{
   display:flex;
   justify-content:center;
   gap:18px;
-  margin-bottom:26px;
+  margin-bottom:28px;
 }
 
 .social-link{
-  width:58px;
-  height:58px;
+  width:60px;
+  height:60px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.08);
+  font-size:1.25rem;
   transition:.25s ease;
-  font-size:1.2rem;
 }
 
 .social-link:hover{
   transform:translateY(-6px) scale(1.08);
   border-color:rgba(0,255,209,.35);
-  box-shadow:0 0 24px rgba(0,255,209,.14);
+  box-shadow:0 0 26px rgba(0,255,209,.14);
 }
 
 .copyright{
   color:#8f8fa5;
-  font-size:.9rem;
+  font-size:.92rem;
 }
 
 /* MOBILE */
@@ -528,11 +577,11 @@ footer{
 @media(max-width:640px){
 
   section{
-    padding:70px 0;
+    padding:75px 0;
   }
 
   .hero-logo{
-    width:130px;
+    width:140px;
   }
 
   .hero-buttons{
@@ -547,7 +596,7 @@ footer{
   }
 
   .phase{
-    padding-left:66px;
+    padding-left:68px;
   }
 
   .nav-btn{
@@ -557,15 +606,17 @@ footer{
 
 </style>
 </head>
+
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 
 <div class="nav">
+
   <div class="container nav-inner">
 
     <div class="brand">
-      <img src="logo.png" alt="BROT">
+      <img src="logo.png" alt="BROT Logo">
       <span>BRAINROT</span>
     </div>
 
@@ -580,6 +631,7 @@ footer{
     </a>
 
   </div>
+
 </div>
 
 <!-- HERO -->
@@ -606,17 +658,17 @@ footer{
         Buy on Pump.fun
       </a>
 
-      <a href="https://brot.brottoken.workers.dev" target="_blank" class="secondary-btn">
-        Enter the Rot
+      <a href="https://x.com/brot_token" target="_blank" class="secondary-btn">
+        Follow the Rot
       </a>
 
     </div>
 
     <div class="hero-strip">
-      <div class="strip-item">🧠 zero utility</div>
+      <div class="strip-item">🧠 terminally online</div>
       <div class="strip-item">⚡ fair launch</div>
-      <div class="strip-item">💀 terminally online</div>
-      <div class="strip-item">🚀 pure degeneration</div>
+      <div class="strip-item">💀 no utility</div>
+      <div class="strip-item">🚀 pure brain damage</div>
     </div>
 
   </div>
@@ -626,28 +678,30 @@ footer{
 <!-- TOKENOMICS -->
 
 <section>
+
   <div class="container">
 
     <div class="token-grid">
 
       <div class="token-card">
         <h3>0% Tax</h3>
-        <p>because taxes require functioning neurons</p>
+        <p>because taxes require functioning brain cells</p>
       </div>
 
       <div class="token-card">
         <h3>Fair Launch</h3>
-        <p>everyone degenerates equally here</p>
+        <p>everyone degenerates equally in the rot economy</p>
       </div>
 
       <div class="token-card">
         <h3>LP Burned</h3>
-        <p>liquidity permanently sacrificed to the digital void</p>
+        <p>liquidity permanently sacrificed to the digital abyss</p>
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 <!-- ABOUT -->
@@ -665,7 +719,7 @@ footer{
       <h2>ABOUT THE ROT</h2>
 
       <p class="about-text">
-        $BROT exists because humanity crossed the point of no return somewhere between subway surfers clips and sigma edits. every fried dopamine receptor, every “just one more reel”, every 3am “bro this meme literally changed my life” moment is now stored permanently on-chain. this isn’t a meme coin. it’s cognitive decay with liquidity.
+        $BROT was created somewhere between dopamine exhaustion, AI-generated schizophrenia, sigma edits, Italian brainrot memes, and 4am doomscrolling. every destroyed attention span and every “bro this meme literally changed my life” moment is now immortalized on-chain forever. this isn’t just a meme coin anymore. it’s irreversible neurological liquefaction with market cap.
       </p>
 
     </div>
@@ -686,12 +740,12 @@ footer{
 
       <div class="phase">
         <h3>ROTTING BEGINS</h3>
-        <p>launch token, fry dopamine receptors, spread chaos</p>
+        <p>launch token, fry dopamine receptors, infect the timeline</p>
       </div>
 
       <div class="phase">
         <h3>SPREAD THE ROT</h3>
-        <p>infect timelines, group chats, and unsuspecting normies</p>
+        <p>deploy memes into group chats and psychologically destabilize normies</p>
       </div>
 
       <div class="phase">
@@ -701,7 +755,7 @@ footer{
 
       <div class="phase">
         <h3>???</h3>
-        <p>the charts become sentient and start speaking Italian</p>
+        <p>the charts become sentient and begin speaking fluent Italian</p>
       </div>
 
     </div>
@@ -723,25 +777,25 @@ footer{
       <div class="step">
         <div class="step-number">1</div>
         <h3>Get Phantom Wallet</h3>
-        <p>download Phantom and prepare your remaining brain cells</p>
+        <p>download Phantom and preserve your last remaining neuron</p>
       </div>
 
       <div class="step">
         <div class="step-number">2</div>
         <h3>Buy SOL</h3>
-        <p>acquire Solana from your favorite exchange</p>
+        <p>acquire Solana from your preferred exchange</p>
       </div>
 
       <div class="step">
         <div class="step-number">3</div>
         <h3>Open Pump.fun</h3>
-        <p>enter the meme casino voluntarily</p>
+        <p>enter the meme casino voluntarily and responsibly irresponsibly</p>
       </div>
 
       <div class="step">
         <div class="step-number">4</div>
         <h3>Paste CA & Buy</h3>
-        <p>achieve irreversible cognitive decay instantly</p>
+        <p>achieve irreversible cognitive deterioration instantly</p>
       </div>
 
     </div>
@@ -758,8 +812,12 @@ footer{
 
     <div class="ca-box">
 
-      <div id="contractAddress">
-        CA: CGuRduiLWrNHsB8rTE3xC5ynuWCPeXi9gXscJy6Mpump
+      <div class="ca-title">
+        CONTRACT ADDRESS
+      </div>
+
+      <div class="contract" id="contractAddress">
+        CGuRduiLWrNHsB8rTE3xC5ynuWCPeXi9gXscJy6Mpump
       </div>
 
       <button class="copy-btn" onclick="copyCA()">
@@ -770,12 +828,16 @@ footer{
 
     <div class="socials">
 
-      <a href="https://brot.brottoken.workers.dev" target="_blank" class="social-link">
-        🌐
+      <a href="https://x.com/brot_token" target="_blank" class="social-link">
+        𝕏
       </a>
 
       <a href="https://t.me/brottoken" target="_blank" class="social-link">
         ✈
+      </a>
+
+      <a href="https://brot.brottoken.workers.dev" target="_blank" class="social-link">
+        🌐
       </a>
 
     </div>
@@ -794,11 +856,11 @@ footer{
 
 const rainContainer = document.getElementById('brainRain');
 
-const totalBrains = window.innerWidth < 768 ? 35 : 70;
+const totalBrains = window.innerWidth < 768 ? 35 : 75;
 
 for(let i=0;i<totalBrains;i++){
 
-  const brain = document.createElement('div');
+  const brain=document.createElement('div');
 
   brain.className='brain';
   brain.innerText='🧠';
@@ -812,15 +874,21 @@ for(let i=0;i<totalBrains;i++){
   rainContainer.appendChild(brain);
 }
 
-/* COPY CA */
+/* COPY CONTRACT */
 
 function copyCA(){
 
-  const text='CGuRduiLWrNHsB8rTE3xC5ynuWCPeXi9gXscJy6Mpump';
+  const contract='CGuRduiLWrNHsB8rTE3xC5ynuWCPeXi9gXscJy6Mpump';
 
-  navigator.clipboard.writeText(text);
+  navigator.clipboard.writeText(contract);
 
-  alert('Contract Address copied. Brainrot installed successfully.');
+  const btn=document.querySelector('.copy-btn');
+
+  btn.innerText='Copied Successfully';
+
+  setTimeout(()=>{
+    btn.innerText='Copy Contract Address';
+  },2000);
 }
 
 </script>
